@@ -115,7 +115,11 @@ async (req, res) => {
             'token',
             token,
             {
-                httpOnly: true
+                httpOnly: true,
+
+                secure: true,
+
+                sameSite: 'none'
             }
         );
 
@@ -201,7 +205,11 @@ async (req, res) => {
                 'token',
                 token,
                 {
-                    httpOnly: true
+                    httpOnly: true,
+
+                    secure: true,
+
+                    sameSite: 'none'
                 }
             );
 
@@ -232,7 +240,14 @@ exports.logout =
 (req, res) => {
 
     res.clearCookie(
-        'token'
+        'token',
+        {
+            httpOnly: true,
+
+            secure: true,
+
+            sameSite: 'none'
+        }
     );
 
     res.redirect('/');
@@ -305,7 +320,14 @@ async (req, res) => {
 
         // Clear JWT Cookie
         res.clearCookie(
-            'token'
+            'token',
+            {
+                httpOnly: true,
+
+                secure: true,
+
+                sameSite: 'none'
+            }
         );
 
 
@@ -373,7 +395,11 @@ exports.profile =
         'token',
         token,
         {
-            httpOnly: true
+            httpOnly: true,
+
+            secure: true,
+
+            sameSite: 'none'
         }
     );
 
